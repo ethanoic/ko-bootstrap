@@ -66,7 +66,7 @@ module.exports = function(grunt) {
                     style: 'expanded'
                 },
                 files: {
-                    '<%= config.src %>/*.css': '<%= config.src %>/*.scss'
+                    '<%= config.src %>/css/theme.css': '<%= config.src %>/scss/theme.scss'
                 }
             }
         },
@@ -148,9 +148,9 @@ module.exports = function(grunt) {
                     },
                     {
                         expand: true,
-                        cwd: '<%= config.src %>/index.html/',
-                        src: ['**'],
-                        dest: '<%= config.dist %>/index.html/'
+                        cwd: '<%= config.src %>/',
+                        src: ['*.html'],
+                        dest: '<%= config.dist %>/'
                     },
                     {
                         expand: true,

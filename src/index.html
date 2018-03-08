@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html id="app">
     <head>
-        <title>Knockout Bootstrap</title>
+        <title data-bind="text: title"></title>
 
         <!-- build:css theme.min.css -->
         <link rel="stylesheet" href="css/theme.css">
@@ -9,18 +9,86 @@
 
     </head>
     <body>
-        <div id="app"></div>
+        <div>
+            <div class="container">
+                <div class="row"> 
+                    <div class="col-md-4">
+                        <!-- ko component: { name: "navs", params: {
+                            navItems: navItems,
+                            orientation: 'vertical',
+                            mode: 'pills'
+                        }} -->
+                        <!-- /ko --> 
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>Alerts</h1>
+                                <!-- ko component: { name: "alerts", params: { 
+                                    content: "This is a primary alert—check it out!", 
+                                    context: "primary" } } -->
+                                <!-- /ko --> 
+                                <!-- ko component: { name: "alerts", params: { 
+                                    content: "This is a secondary alert—check it out!", 
+                                    context: "secondary" } } -->
+                                <!-- /ko --> 
+                                <!-- ko component: { name: "alerts", params: { 
+                                    content: "This is a success alert—check it out!", 
+                                    context: "success" } } -->
+                                <!-- /ko --> 
+                                <!-- ko component: { name: "alerts", params: { 
+                                    content: "This is a danger alert—check it out!", 
+                                    context: "danger" } } -->
+                                <!-- /ko --> 
+                                <!-- ko component: { name: "alerts", params: { 
+                                    content: "This is a warning alert—check it out!", 
+                                    context: "warning" } } -->
+                                <!-- /ko --> 
+                                <!-- ko component: { name: "alerts", params: { 
+                                    content: "This is a info alert—check it out!", 
+                                    context: "info" } } -->
+                                <!-- /ko --> 
+                                <!-- ko component: { name: "alerts", params: { 
+                                    content: "This is a light alert—check it out!", 
+                                    context: "light" } } -->
+                                <!-- /ko --> 
+                                <!-- ko component: { name: "alerts", params: { 
+                                    content: "This is a dark alert—check it out!", 
+                                    context: "dark" } } -->
+                                <!-- /ko --> 
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>Nav Tabs</h1>
+                                <!-- ko component: { name: "navs", params: {
+                                    navItems: demoTabItems,
+                                    mode: 'tabs'
+                                }} -->
+                                <!-- /ko -->
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div> 
 
         <!-- build:js vendors.js -->
-        <script src="../bower_components/knockout/dist/knockout.js"></script>
-        <script src="../bower_components/hasher/dist/hasher.js"></script>
-        <script src="../bower_components/js-signals/dist/signals.js"></script>
-        <script src="../bower_components/crosroads/dist/crossroads.js"></script>
-        <script src="../bower_components/moment/moment.js"></script>
+        <script src="/bower_components/js-signals/dist/signals.js"></script>
+        <script src="/bower_components/crossroads/dist/crossroads.js"></script>
+        <script src="/bower_components/hasher/dist/js/hasher.js"></script>
+        <script src="/bower_components/knockout/dist/knockout.js"></script>
+        <script src="/bower_components/moment/moment.js"></script>
         <!-- endbuild -->
-
+        
         <!-- build:js script.js -->
-        <script src="src/js/app.js"></script>
+        <script src="../src/js/config.js"></script> 
+        <script src="../src/js/kbo/components/alerts/alerts.js"></script>
+        <script src="../src/js/kbo/components/navs/navs.js"></script>
+        <script src="../src/js/app.js"></script> 
         <!-- endbuild -->
     </body>
 </html>

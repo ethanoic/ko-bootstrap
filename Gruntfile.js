@@ -20,43 +20,62 @@ module.exports = function(grunt) {
                 tasks: ['wiredep']
             },
             sass: {
-                files: ['<%= config.src %>/scss/{,*/}*.scss'],
-                tasks: ['sass','postcss']
+                files: ['<%= config.src %>/scss/**/*.scss'],
+                tasks: ['sass','postcss'],
+                options: {
+                    livereload: true
+                }
             },
             scripts: {
                 files: ['<%= config.src %>/js/**/*.js'],
-                tasks: ['jshint']
+                tasks: ['jshint'],
+                options: {
+                    livereload: true
+                }
             },
             html: {
-                files: ['<%= config.src %>/index.html'],
-                tasks: ['jshint']
+                files: ['<%= config.src %>/**/*.html'],
+                tasks: ['jshint'],
+                options: {
+                    livereload: true
+                }
             },
             livereload: {
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 },
-                files: ['<%= config.dist %>/{,*/}*.html']
+                files: ['<%= config.src %>/index.html']
             }
         },
         connect: {
-            options: {
-                port: 9000,
-                livereload: 35729,
-                hostname: 'localhost'
-            },
-            livereload: {
+            /*
+            server: {
                 options: {
-                    open: true,
+                    port: 9002,
+                    hostname: '*',
                     base: '<%= config.root %>',
-                    middleware: function(connect, options) {
-                        var middlewares = [];
-
+                    middleware: function(connect, options, middlewares) {
+                        // return middlewares;
+                        
                         return [
                             serveStatic('.html'),
                             serveStatic('./'),
                             connect().use('/bower_components', serveStatic('./bower_components'))
                         ];
                     }
+                }
+            },
+            */
+            options: {
+                port: 9002,
+                livereload: 35729,
+                hostname: '*'
+            },
+            livereload: {
+                options: {
+                    open: true,
+                    port: 9002,
+                    base: ['<%= config.root %>']
                 }
             }
         },
@@ -98,7 +117,7 @@ module.exports = function(grunt) {
           },
         },
         jshint: {
-          all: ['<%= config.src %>/{,*/}*.js']
+          all: ['<%= config.src %>/**/*.js']
         },
         postcss: {
           options: {
@@ -157,6 +176,16 @@ module.exports = function(grunt) {
                         cwd: '<%= config.src %>/img/',
                         src: ['**'],
                         dest: '<%= config.dist %>/img/'
+                    }
+                ]
+            },
+            html: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= config.src %>/',
+                        src: ['*.html'],
+                        dest: '<%= config.dist %>/'
                     }
                 ]
             }

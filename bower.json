@@ -8,9 +8,9 @@
     "crossroads": "^0.12.2",
     "js-signals": "^1.0.0",
     "hasher": "^1.2.0",
-    "bootstrap": "4.0.0"
+    "bootstrap": "4.0.0",
+    "jquery": "^3.3.1"
   },
-  "devDependencies": {  
-
+  "devDependencies": {
   }
 }

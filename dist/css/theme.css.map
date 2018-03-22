@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,eAAe;AACP,oEAAyD;AAEjE,MAAM",
+"mappings": "AAAA,eAAe;AACP,oEAAyD;AAEjE,qBAAqB",
 "sources": ["../scss/theme.scss"],
 "names": [],
 "file": "theme.css"

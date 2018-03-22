@@ -11,7 +11,12 @@
     <body>
         <div>
             <div class="container">
-                <div class="row"> 
+                <div class="row">
+                    <div class="col">
+                        <h1 class="h1">KBO - Knockout Bootstrap</h1>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-md-4">
                         <!-- ko component: { name: "navs", params: {
                             navItems: navItems,
@@ -23,11 +28,16 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-12">
+                                
                                 <h1>Alerts</h1>
+                                
+                                <div data-bind="component: { name: 'alerts', params: { content: 'HELLO element', context: 'primary' } }"></div>
+                                
                                 <!-- ko component: { name: "alerts", params: { 
                                     content: "This is a primary alert—check it out!", 
                                     context: "primary" } } -->
                                 <!-- /ko --> 
+
                                 <!-- ko component: { name: "alerts", params: { 
                                     content: "This is a secondary alert—check it out!", 
                                     context: "secondary" } } -->
@@ -64,8 +74,29 @@
                                 <h1>Nav Tabs</h1>
                                 <!-- ko component: { name: "navs", params: {
                                     navItems: demoTabItems,
-                                    mode: 'tabs'
+                                    mode: 'tabs',
+                                    onTabSelected: onTabSelected
                                 }} -->
+                                <!-- /ko -->
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- ko component: { name: "form-group", params: { 
+                                    label: "My Field",
+                                    type: "text",
+                                    placeholder: "enter something",
+                                    value: inputGroupValue,
+                                    onChanged: inputFormGroupOnChange
+                                } } -->
+                                <!-- /ko -->
+                                <!-- ko component: { name: "form-group", params: { 
+                                    label: "My Field Clone",
+                                    type: "text",
+                                    placeholder: "enter something",
+                                    value: inputGroupValue()
+                                } } -->
                                 <!-- /ko -->
                             </div>
                         </div>
@@ -76,7 +107,17 @@
             </div>
         </div> 
 
+        <!-- component templates start -->
+        <template id="form-group-component-template">
+            <div class="form-group">
+                <label for="exampleInputPassword1" data-bind="text: label"></label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" data-bind="attr: { type: type, placeholder: placeholder },value: value, inputOnChanged">
+            </div>
+        </template>
+        <!-- component templates end -->
+
         <!-- build:js vendors.js -->
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="/bower_components/js-signals/dist/signals.js"></script>
         <script src="/bower_components/crossroads/dist/crossroads.js"></script>
         <script src="/bower_components/hasher/dist/js/hasher.js"></script>
@@ -88,6 +129,7 @@
         <script src="../src/js/config.js"></script> 
         <script src="../src/js/kbo/components/alerts/alerts.js"></script>
         <script src="../src/js/kbo/components/navs/navs.js"></script>
+        <script src="../src/js/kbo/components/form-group/form-group.js"></script>
         <script src="../src/js/app.js"></script> 
         <!-- endbuild -->
     </body>

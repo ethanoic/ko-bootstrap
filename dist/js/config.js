@@ -4,15 +4,15 @@ var config = {
     navItems: [
         {
             text: "Alerts",
-            href: '#/alerts'
+            href: '#alerts'
         },
         {
             text: "Badge",
-            href: '#/badge'
+            href: '#badge'
         },
         {
             text: "Navs",
-            href: '#/navs'
+            href: '#navs'
         }
     ]
 };

@@ -25,6 +25,15 @@
                 href: "#nav-contact"
             }
         ]);
+
+        self.onTabSelected = function() {
+            
+        };
+
+        self.inputGroupValue = ko.observable('This is an input group value');
+        self.inputFormGroupOnChange = function() {
+            alert('input group value changed!!!!');
+        };
     };
 
     ko.applyBindings(new appModel(), pageElement);

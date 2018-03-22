@@ -4,6 +4,9 @@
 
 (function() {
     console.log('document on load');
+
+    var app = {};
+    window.app = app;
     
     var pageElement = document.getElementById('app');
     var appModel = function() {
@@ -33,6 +36,10 @@
         self.inputGroupValue = ko.observable('This is an input group value');
         self.inputFormGroupOnChange = function() {
             alert('input group value changed!!!!');
+        };
+
+        window.app.doThis = function() {
+            alert('do this');
         };
     };
 

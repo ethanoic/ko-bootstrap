@@ -8,6 +8,7 @@ ko.components.register('form-group', {
 
         this.onChanged = function() {
             params.onChanged();
+            window.app.doThis();
         };
     },
     template: {
